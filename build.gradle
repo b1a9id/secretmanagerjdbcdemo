@@ -4,6 +4,10 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
+ext {
+    set("awsSecretManagerJDBCVersion", "2.0.2")
+}
+
 group = 'com.b1a9idps'
 version = '0.0.1-SNAPSHOT'
 
@@ -21,6 +25,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly "com.amazonaws.secretsmanager:aws-secretsmanager-jdbc:${awsSecretManagerJDBCVersion}"
     runtimeOnly 'com.mysql:mysql-connector-j'
 
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
